@@ -1,0 +1,29 @@
+<div class="container">
+    <div class="row">
+        <div class="col-md-4">
+            <div class="row">
+                <a {{action "createDoc"}} class="btn icon-btn btn-success" href="#">
+                    <span class="glyphicon btn-glyphicon glyphicon-plus img-circle text-success"></span>
+                        Add
+                </a>
+                <a {{action "testing"}} class="btn icon-btn btn-success" href="#">
+                    <span class="glyphicon btn-glyphicon glyphicon-plus img-circle text-success"></span>
+                        Test
+                </a>
+            </div>
+            <div class="row">
+                <ul class="list-group">
+                    {{#each model as |document|}}
+                    <li class="list-group-item justify-content-between">
+                        {{#link-to "documents.details" document}}{{document.id}}{{/link-to}}
+                        <span {{action "removeDoc" document}} class="badge badge-default badge-pill">Delete</span>
+                    </li>
+                    {{/each}}
+                </ul>
+            </div>
+        </div>
+        <div class="col-md-8">
+            {{outlet}}
+        </div>
+    </div>
+</div>
