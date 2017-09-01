@@ -30,7 +30,7 @@ export default function () {
     if(foundDoc) {
       return { data: foundDoc };
     } else {
-      return new Mirage.Response(404, null, null);
+     // return new Mirage.Response(404, null, null);
     }
   });
 
@@ -42,7 +42,7 @@ export default function () {
   });
 
   this.del('/documents/:id', (db, request) => {
-    let id = request.params.id;
+    //let id = request.params.id;
     var docToDel = dummydocs.find((document) => request.params.id === document.id);
     dummydocs.pop(docToDel);
   });

@@ -12,8 +12,7 @@ export default Ember.Controller.extend({
             document.deleteRecord();
             document.save();
         },
-        testing:  function(document) {
-  
+        testing:  function() {
             var doc = this.store.find('document', 'gibtsnicht'); // does not exist on server
             var doc2 = this.store.recordForId('document', 'gibtsnicht'); // exists!
             console.log(doc.get('id'));
