@@ -11,6 +11,7 @@ export default Ember.Controller.extend({
         removeDoc: function(document) {
             document.deleteRecord();
             document.save();
+            this.transitionToRoute("documents");
         },
         testing:  function() {
             var doc = this.store.find('document', 'gibtsnicht'); // does not exist on server

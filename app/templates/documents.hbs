@@ -16,7 +16,7 @@
                     {{#each model as |document|}}
                     <li class="list-group-item justify-content-between">
                         {{#link-to "documents.details" document}}{{document.id}}{{/link-to}}
-                        <span {{action "removeDoc" document}} class="badge badge-default badge-pill">Delete</span>
+                        <a {{action "removeDoc" document}} class="badge badge-default badge-pill">Delete</a>
                     </li>
                     {{/each}}
                 </ul>
