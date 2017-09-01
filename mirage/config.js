@@ -22,13 +22,23 @@ export default function () {
     {
       type: 'keywords',
       id: 'key1',
+      document_id:"docid1",
       attributes: {
         name: "Keyword1",
         value: "Value1"
       }
     },{
       type: 'keywords',
+      id: 'key3',
+      document_id:"docid1",
+      attributes: {
+        name: "Keyword3",
+        value: "Value3"
+      }
+    },{
+      type: 'keywords',
       id: 'key2',
+      document_id: "docid2",
       attributes: {
         name: "Keyword2",
         value: "Value2"
@@ -39,11 +49,18 @@ export default function () {
   let counter = dummydocs.length+1;
 
   this.get('/documents', function () {
-    return { data: dummydocs };
+    var result = JSON.parse(JSON.stringify(dummydocs));
+    result.forEach(function(v){ delete v.attributes.image});
+    return { data: result };
   });
 
-  this.get('/keywords', function () {
-    return { data: dummykeys };
+  this.get('/keywords',  function (db, request) {
+    var foundKeys = dummykeys.filter((keyword) => request.queryParams.document_id === keyword.document_id);
+    if(foundKeys) {
+      return { data: foundKeys };
+    } else {
+      //return new Response(404, {}, {});
+    }
   });
 
   // Find and return the provided document from our document list above

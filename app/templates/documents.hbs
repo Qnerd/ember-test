@@ -15,7 +15,7 @@
                 <ul class="list-group">
                     {{#each model as |document|}}
                     <li class="list-group-item justify-content-between">
-                        {{#link-to "documents.details" document}}{{document.id}}{{/link-to}}
+                        {{#link-to "documents.details" document.id}}{{document.id}}{{/link-to}}
                         <a {{action "removeDoc" document}} class="badge badge-default badge-pill">Delete</a>
                     </li>
                     {{/each}}
