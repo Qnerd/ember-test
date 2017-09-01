@@ -18,10 +18,32 @@ export default function () {
     }
 
   ];
+  let dummykeys = [
+    {
+      type: 'keywords',
+      id: 'key1',
+      attributes: {
+        name: "Keyword1",
+        value: "Value1"
+      }
+    },{
+      type: 'keywords',
+      id: 'key2',
+      attributes: {
+        name: "Keyword2",
+        value: "Value2"
+      }
+    }
+
+  ];
   let counter = dummydocs.length+1;
 
   this.get('/documents', function () {
     return { data: dummydocs };
+  });
+
+  this.get('/keywords', function () {
+    return { data: dummykeys };
   });
 
   // Find and return the provided document from our document list above

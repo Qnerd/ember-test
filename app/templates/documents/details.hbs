@@ -1,1 +1,10 @@
-<img src="{{model.image}}">
+<div class="row">
+    <div class="col-md-8">
+         <div class="thumbnail">
+            <img src="{{model.image}}" class="img-rounded">
+         </div>
+    </div>
+    <div class="col-md-4">
+       {{keyword-list keywords=model.keywords}}
+    </div>
+</div>

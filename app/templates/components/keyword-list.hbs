@@ -1,0 +1,9 @@
+<div class="card text-center">
+    <ul class="list-group list-group-flush ">
+        {{#each keywords as |keyword|}}
+            <li class="list-group-item" style="border: none;">
+                <strong>{{keyword.name}}</strong> : {{keyword.value}}
+            </li>
+        {{/each}}
+    </ul>
+</div>
